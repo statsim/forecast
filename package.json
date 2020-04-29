@@ -1,0 +1,24 @@
+{
+  "name": "forecast",
+  "version": "0.0.1",
+  "description": "Forecasting in the browser",
+  "main": "process.js",
+  "scripts": {
+    "build": "browserify src/process.js -s Process | uglifyjs -cm > process.js && browserify src/render.js -s Render | uglifyjs -cm > render.js",
+    "build-dev": "browserify src/process.js -s Process > process.js && browserify src/render.js -s Render > render.js",
+    "watch": "nodemon --watch src --ext js,css,html --exec 'npm run build-dev'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton Zemlyansky",
+  "license": "ISC",
+  "dependencies": {
+    "arima": "0.0.2",
+    "autotuner": "^0.1.0",
+    "csv-parse": "^4.9.0",
+    "plotly.js": "^1.53.0"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.1",
+    "uglify-es": "^3.3.9"
+  }
+}
