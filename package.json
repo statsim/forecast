@@ -1,6 +1,6 @@
 {
   "name": "forecast",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Forecasting in the browser",
   "main": "process.js",
   "scripts": {

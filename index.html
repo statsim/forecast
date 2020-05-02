@@ -10,17 +10,18 @@
     <link rel="icon" type="image/png" href="https://statsim.com/app/images/favicon-16x16.png" sizes="16x16">
     <style>
       a { color: #19BCB0 }
+      .status-bar { background: #f5f5f5 }
     </style>
   </head>
   <body>
-    <div style="font-weight: 300">
+    <div class="status-bar">
       <div class="container">
         <div class="row">
           <div class="col s11" style="font-size: 14px;">
             <a href="">StatSim</a> → Forecast
           </div>
           <div class="col s1" style="font-size: 13px; color: #AAA; text-align: right">
-            0.0.1
+            0.0.2
           </div>
         </div>
       </div>
@@ -36,7 +37,23 @@
       <div class="row">
         <div id="port-container"></div>
       </div>
+      <div class="row">
+        <div class="col m12">
+          <small>
+            All processing and visualization happens in the browser. We don't see, collect or sell data <br> 
+            Based on <a href="https://github.com/statsim/port">port</a> and npm packages: 
+            <a href="https://www.npmjs.com/package/csv-parse">csv-parse</a>, 
+            <a href="https://www.npmjs.com/package/arima">arima</a>, 
+            <a href="https://www.npmjs.com/package/plotly.js">plotly.js</a> and <a href="https://github.com/statsim/vis/blob/master/package.json">other</a>
+          </small>
+          <p>
+            <a class="github-button" href="https://github.com/statsim/forecast" data-icon="octicon-star" data-show-count="true" aria-label="Star statsim/forecast on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/statsim/forecast/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue statsim/forecast on GitHub">Issue</a>
+          </p>
+        </div>
+      </div>
     </div>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://statsim.com/port/dist/port.js"></script>
     <script>
