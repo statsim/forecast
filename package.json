@@ -12,7 +12,7 @@
   "author": "Anton Zemlyansky",
   "license": "ISC",
   "dependencies": {
-    "arima": "0.0.2",
+    "arima": "^0.1.0",
     "autotuner": "^0.1.0",
     "csv-parse": "^4.9.0",
     "plotly.js": "^1.53.0"
