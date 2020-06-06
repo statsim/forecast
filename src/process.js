@@ -38,7 +38,7 @@ module.exports = class Process {
             d: Math.round(Math.random() * 3),
             q: Math.round(Math.random() * 6)
           }
-          const tsPred = arima(tsTrain, params.timesteps, {
+          const [tsPred, err] = arima(tsTrain, params.timesteps, {
             p: pars.p,
             d: pars.d,
             q: pars.q,

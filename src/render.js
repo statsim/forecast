@@ -34,17 +34,36 @@ module.exports = class Render {
       type: 'scatter',
       mode: 'lines',
       name: 'Forecast',
-      x: forecast.map((_, i) => i + ts.length),
-      y: forecast,
+      x: forecast[0].map((_, i) => i + ts.length),
+      y: forecast[0],
       line: { color: '#17BECF' }
     }
     const plotlyData = [tsTrace, forecastTrace]
+
+    if (forecast[1] && Array.isArray(forecast[1])) {
+      const forecastIntervals = {
+        name: 'Forecast',
+        showlegend: false,
+        type: 'scatter',
+        fill: 'tonexty',
+        fillcolor: 'rgba(0, 0, 0, 0.1)',
+        line: { color: 'transparent' },
+        x: forecast[0].map((_, i) => i + ts.length),
+        y: forecast[1].map((e, i) => forecast[0][i] + 1.96 * Math.sqrt(e))
+      }
+      for (let i = forecast[0].length - 1; i >= 0; i--) {
+        forecastIntervals.x.push(forecastIntervals.x[i])
+        forecastIntervals.y.push(forecast[0][i] - 1.96 * Math.sqrt(forecast[1][i]))
+      }
+      plotlyData.unshift(forecastIntervals)
+    }
+
     Plotly.newPlot(this.divPlot, plotlyData, {
-      title: forecast.length + ' steps forecast'
+      title: forecast[0].length + ' steps forecast'
     })
 
     //
-    const tsTrain = ts.slice(0, ts.length - forecastTest.length)
+    const tsTrain = ts.slice(0, ts.length - forecastTest[0].length)
     const tsTraceTrain = {
       type: 'scatter',
       mode: 'lines',
@@ -57,7 +76,7 @@ module.exports = class Render {
       type: 'scatter',
       mode: 'lines',
       name: 'True values',
-      x: forecastTest.map((_, i) => i + tsTrain.length),
+      x: forecastTest[0].map((_, i) => i + tsTrain.length),
       y: ts.slice(tsTrain.length),
       line: {
         dash: 'dot',
@@ -68,13 +87,13 @@ module.exports = class Render {
       type: 'scatter',
       mode: 'lines',
       name: 'Forecast',
-      x: forecastTest.map((_, i) => i + tsTrain.length),
-      y: forecastTest,
+      x: forecastTest[0].map((_, i) => i + tsTrain.length),
+      y: forecastTest[0],
       line: { color: '#17BECF' }
     }
     const plotlyDataTest = [tsTraceTrain, tsTraceTest, forecastTestTrace]
     Plotly.newPlot(this.divPlotTest, plotlyDataTest, {
-      title: forecast.length + ' steps test'
+      title: forecastTest[0].length + ' steps test'
     })
 
     this.pOpts.innerHTML = `
