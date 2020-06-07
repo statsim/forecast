@@ -21,7 +21,7 @@
             <a href="">StatSim</a> → Forecast
           </div>
           <div class="col s1" style="font-size: 13px; color: #AAA; text-align: right">
-            0.0.2
+            0.1.0
           </div>
         </div>
       </div>
@@ -86,20 +86,23 @@
                 return {
                   'p': {'className': 'hidden'},
                   'd': {'className': 'hidden'},
-                  'q': {'className': 'hidden'}
+                  'q': {'className': 'hidden'},
+                  'iterations': {'className': ''}
                 }
               } else {
                 return {
                   'p': {'className': ''},
                   'd': {'className': ''},
-                  'q': {'className': ''}
+                  'q': {'className': ''},
+                  'iterations': {'className': 'hidden'}
                 }
               }
             }},
             { "type": "int", "name": "timesteps", "default": 20},
             { "type": "int", "name": "p", "default": 1},
             { "type": "int", "name": "d", "default": 0},
-            { "type": "int", "name": "q", "default": 1}
+            { "type": "int", "name": "q", "default": 1},
+            { "type": "int", "name": "iterations", "default": 50}
           ]
         }
       })

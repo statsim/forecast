@@ -32,7 +32,7 @@ module.exports = class Process {
         const split = ts.length - params.timesteps
         const tsTrain = ts.slice(0, split)
         const tsTrue = ts.slice(split)
-        for (let i = 0; i <= 60; i++) {
+        for (let i = 0; i <= params.iterations; i++) {
           const pars = {
             p: Math.round(Math.random() * 12),
             d: Math.round(Math.random() * 3),
