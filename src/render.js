@@ -4,6 +4,10 @@ module.exports = class Render {
   constructor () {
     this.outputs = document.getElementById('outputs')
 
+    this.pOpts = document.createElement('h6')
+    this.pOpts.style.textAlign = 'center'
+    this.outputs.appendChild(this.pOpts)
+
     this.divPlot = document.createElement('div')
     this.divPlot.style.width = '100%'
     this.divPlot.style.maxWidth = '900px'
@@ -14,12 +18,18 @@ module.exports = class Render {
     this.divPlotTest.style.maxWidth = '900px'
     this.outputs.appendChild(this.divPlotTest)
 
-    this.pOpts = document.createElement('p')
-    this.outputs.appendChild(this.pOpts)
+    this.divCor = document.createElement('div')
+    this.divCor.style.width = '100%'
+    this.divCor.style.maxWidth = '900px'
+    this.outputs.appendChild(this.divCor)
   }
 
   render (data) {
-    const { ts, forecast, forecastTest, params } = data
+    const { ts, forecast, forecastTest, autocor, params } = data
+
+    this.pOpts.innerHTML = `
+      ARIMA (<b>p</b>:${params.p}, <b>d</b>: ${params.d}, <b>q</b>: ${params.q})
+    `
 
     //
     const tsTrace = {
@@ -96,8 +106,17 @@ module.exports = class Render {
       title: forecastTest[0].length + ' steps test'
     })
 
-    this.pOpts.innerHTML = `
-      <b>p</b>:${params.p}, <b>d</b>: ${params.d}, <b>q</b>: ${params.q}
-    `
+    const autocorTrace = {
+      type: 'scatter',
+      mode: 'lines',
+      name: 'Autocorrelation',
+      x: autocor.map((_, i) => i),
+      y: autocor,
+      line: { color: '#8F8F8F' }
+    }
+    const autocorData = [autocorTrace]
+    Plotly.newPlot(this.divCor, autocorData, {
+      title: 'Autocorrelation plot'
+    })
   }
 }

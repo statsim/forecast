@@ -15,6 +15,7 @@
     "arima": "^0.1.0",
     "autotuner": "^0.1.0",
     "csv-parse": "^4.9.0",
+    "online-autocorrelation": "0.0.1",
     "plotly.js": "^1.53.0"
   },
   "devDependencies": {

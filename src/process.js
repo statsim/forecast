@@ -1,4 +1,5 @@
 const arima = require('arima')
+const AutoCor = require('online-autocorrelation')
 const parse = require('csv-parse/lib/sync')
 
 module.exports = class Process {
@@ -63,7 +64,8 @@ module.exports = class Process {
         }
         const forecastTest = arima(ts.slice(0, ts.length - params.timesteps), params.timesteps, arimaOpts)
         const forecast = arima(ts, params.timesteps, arimaOpts)
-        return { ts, forecast, forecastTest, params: arimaOpts }
+        const autocor = AutoCor(ts.length < 50 ? ts.length : 50)(ts)
+        return { ts, forecast, forecastTest, autocor, params: arimaOpts }
       }
     }
   }
