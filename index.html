@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="https://statsim.com/port/css/port.css" media="screen"/>
     <link rel="icon" type="image/png" href="https://statsim.com/app/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://statsim.com/app/images/favicon-16x16.png" sizes="16x16">
+    <link type="text/css" rel="stylesheet" href="https://statsim.com/assets/common.css" media="screen"/>
     <style>
       a { color: #19BCB0 }
       .status-bar { background: #f5f5f5 }
@@ -18,10 +19,9 @@
       <div class="container">
         <div class="row">
           <div class="col s11" style="font-size: 14px;">
+            <div id="menu"></div>
             <a href="">StatSim</a> → Forecast
-          </div>
-          <div class="col s1" style="font-size: 13px; color: #AAA; text-align: right">
-            0.1.0
+            <span class="version">Version: 0.1.0</span>
           </div>
         </div>
       </div>
@@ -29,9 +29,10 @@
     <div class="container">
       <div class="row">
         <div class="col m12">
-          <h4>Univariate timeseries forecasting in the browser</h4>
-          <p>Predicting future is one of the fundamental problems in science and human life. Trying to get some insights about the future people used to ask questions to oracles or applied black magic. Here we try to be a little more scientifical and provide a statistical tool for timeseries forecasting based on ARIMA model. More modern LSTM model is coming soon..</p>
-          <p>Currently supported methods: <i>ARIMA</i></p>
+          <h1>Time-series forecasting in the browser</h1>
+          <h2>Analyze and predict univariate time-series online using the ARIMA model</h2>
+          <p>
+          Predicting the future is one of the fundamental problems in science, business, and human life in general. Ancient people asked magicians to get some hints about future events. Nowadays, we try to be more scientific and use statistical and machine learning models for forecasting. ARIMA is probably the most robust and popular of such models. StatSim Forecast makes it possible to use  ARIMA online, in the browser, without writing code.</p>
         </div>
       </div>
       <div class="row">
@@ -56,6 +57,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://statsim.com/port/dist/port.js"></script>
+    <script src="https://statsim.com/assets/common.js"></script>
     <script>
       var port = new Port({
         portContainer: document.getElementById('port-container'),
