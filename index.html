@@ -35,9 +35,30 @@
           Predicting the future is one of the fundamental problems in science, business, and human life in general. Ancient people asked magicians to get some hints about future events. Nowadays, we try to be more scientific and use statistical and machine learning models for forecasting. ARIMA is probably the most robust and popular of such models. StatSim Forecast makes it possible to use  ARIMA online, in the browser, without writing code.</p>
         </div>
       </div>
+
       <div class="row">
         <div id="port-container"></div>
       </div>
+
+      <div class="row features">
+        <div class="col m6 feature">
+          <h3>
+            Forecast uncertainty estimation
+          </h3>
+          <p>
+            Real-world data is almost always noisy. That means it's impossible to estimate the exact rule that governs the data generating process. So we can't be 100% sure about the predicted results if what we have is only a point estimate. To deal with real-world complexity and noise, models should predict a range of the most probable values. Luckily ARIMA is one of those models.
+          </p>
+        </div>
+        <div class="col m6 feature">
+          <h3>
+            Client-side analysis and forecasting
+          </h3>
+          <p>
+            ARIMA is based on a native C++ library called "ctsa" ported to WebAssembly and wrapped in this web application. When you load a dataset, it's preprocessed using Javascript libraries then passed to a virtual machine running WebAssembly in your browser. That means no single byte of your data is leaving a device that runs this web app. 
+          </p>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col m12">
           <small>
