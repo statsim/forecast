@@ -12,6 +12,7 @@
     <style>
       a { color: #19BCB0 }
       .status-bar { background: #f5f5f5 }
+      .grey-bar { background: #f5f5f5 }
     </style>
   </head>
   <body>
@@ -20,61 +21,67 @@
         <div class="row">
           <div class="col s11" style="font-size: 14px;">
             <div id="menu"></div>
-            <a href="">StatSim</a> → Forecast
+            <a href="">StatSim</a> → <b>Forecast</b>
             <span class="version">Version: 0.1.0</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col m12">
-          <h1>Time-series forecasting in the browser</h1>
-          <h2>Analyze and predict univariate time-series online using the ARIMA model</h2>
-          <p>
-          Predicting the future is one of the fundamental problems in science, business, and human life in general. Ancient people asked magicians to get some hints about future events. Nowadays, we try to be more scientific and use statistical and machine learning models for forecasting. ARIMA is probably the most robust and popular of such models. StatSim Forecast makes it possible to use  ARIMA online, in the browser, without writing code.</p>
-        </div>
-      </div>
 
+    <div class="container">
       <div class="row">
         <div id="port-container"></div>
       </div>
+    </div>
 
-      <div class="row features">
-        <div class="col m6 feature">
-          <h3>
-            Forecast uncertainty estimation
-          </h3>
-          <p>
-            Real-world data is almost always noisy. That means it's impossible to estimate the exact rule that governs the data generating process. So we can't be 100% sure about the predicted results if what we have is only a point estimate. To deal with real-world complexity and noise, models should predict a range of the most probable values. Luckily ARIMA is one of those models.
-          </p>
+    <div id="description" class="grey-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col m12">
+            <h1>Time-series forecasting in the browser</h1>
+            <h2>Analyze and predict univariate time-series online using the ARIMA model</h2>
+            <p>
+            Predicting the future is one of the fundamental problems in science, business, and human life in general. Ancient people asked magicians to get some hints about future events. Nowadays, we try to be more scientific and use statistical and machine learning models for forecasting. ARIMA is probably the most robust and popular of such models. StatSim Forecast makes it possible to use  ARIMA online, in the browser, without writing code.</p>
+          </div>
         </div>
-        <div class="col m6 feature">
-          <h3>
-            Client-side analysis and forecasting
-          </h3>
-          <p>
-            ARIMA is based on a native C++ library called "ctsa" ported to WebAssembly and wrapped in this web application. When you load a dataset, it's preprocessed using Javascript libraries then passed to a virtual machine running WebAssembly in your browser. That means no single byte of your data is leaving a device that runs this web app. 
-          </p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col m12">
-          <small>
-            All processing and visualization happens in the browser. We don't see, collect or sell data <br> 
-            Based on <a href="https://github.com/statsim/port">port</a> and npm packages: 
-            <a href="https://www.npmjs.com/package/csv-parse">csv-parse</a>, 
-            <a href="https://www.npmjs.com/package/arima">arima</a>, 
-            <a href="https://www.npmjs.com/package/plotly.js">plotly.js</a> and <a href="https://github.com/statsim/vis/blob/master/package.json">other</a>
-          </small>
-          <p>
-            <a class="github-button" href="https://github.com/statsim/forecast" data-icon="octicon-star" data-show-count="true" aria-label="Star statsim/forecast on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/statsim/forecast/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue statsim/forecast on GitHub">Issue</a>
-          </p>
+        <div class="row features">
+          <div class="col m6 feature">
+            <h3>
+              Forecast uncertainty estimation
+            </h3>
+            <p>
+              Real-world data is almost always noisy. That means it's impossible to estimate the exact rule that governs the data generating process. So we can't be 100% sure about the predicted results if what we have is only a point estimate. To deal with real-world complexity and noise, models should predict a range of the most probable values. Luckily ARIMA is one of those models.
+            </p>
+          </div>
+          <div class="col m6 feature">
+            <h3>
+              Client-side analysis and forecasting
+            </h3>
+            <p>
+              ARIMA is based on a native C++ library called "ctsa" ported to WebAssembly and wrapped in this web application. When you load a dataset, it's preprocessed using Javascript libraries then passed to a virtual machine running WebAssembly in your browser. That means no single byte of your data is leaving a device that runs this web app. 
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col m12">
+            <small>
+              All processing and visualization happens in the browser. We don't see, collect or sell data <br> 
+              Based on <a href="https://github.com/statsim/port">port</a> and npm packages: 
+              <a href="https://www.npmjs.com/package/csv-parse">csv-parse</a>, 
+              <a href="https://www.npmjs.com/package/arima">arima</a>, 
+              <a href="https://www.npmjs.com/package/plotly.js">plotly.js</a> and <a href="https://github.com/statsim/vis/blob/master/package.json">other</a>
+            </small>
+            <p>
+              <a class="github-button" href="https://github.com/statsim/forecast" data-icon="octicon-star" data-show-count="true" aria-label="Star statsim/forecast on GitHub">Star</a>
+              <a class="github-button" href="https://github.com/statsim/forecast/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue statsim/forecast on GitHub">Issue</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://statsim.com/port/dist/port.js"></script>
